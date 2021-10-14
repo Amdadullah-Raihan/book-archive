@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Book Archive API</h1>
+    <section  class="container">
+       <div>
+            <input id="search-field" type="" placeholder="Search Book" required>
+            <button id="search-btn" onclick="loadBooks()">search </button>
+       </div>
+    </section>
+    <section id="info">
 
-    <!-- script link -->
+    </section>
+    <section>
+        <div id="search-result" class="grid-style">
+            
+        </div>
+    </section>
     <script src="js/api.js"></script>
 </body>
 </html>
