@@ -8,6 +8,15 @@ body{
     background:#E3E4E9;
 }
 
+/* container design  */
+
+.container{
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    margin: 20px    ;
+}
+
 /* grid  */
 .grid-style{
     display: grid;
@@ -15,6 +24,7 @@ body{
     grid-template-columns:repeat(4,1fr);
     grid-gap: 10px;
     margin:100px 50px ;
+    cursor: pointer;
    
 }
 .grid-item{
@@ -26,15 +36,41 @@ body{
      
     
 }
-.container{
-    display: flex;
-    justify-content: center;
-    margin: 20px    ;
+#info{
+  
+  margin-left:  50px;
+}
+
+/* card design  */
+#card-img{
+    width: 50%;
+    height: auto;
+    
 }
 
 #card-body{
     text-align: center  ;
+    /* line-height: 10px; */
 }
-#card-img{
-    width: 100%;
+
+/* input field  */
+
+#search-field{
+    height: 30.5px;
+    border: none;
+    width: 300px;
+    padding-left: 10px;
+}
+
+#search-btn{
+    height: 32px;
+    color: White;
+    background: rgb(35, 117, 35);
+    border: none;
+    padding: 0px 20px;
+}
+#required{
+    text-align: center;
+    
+    
 }

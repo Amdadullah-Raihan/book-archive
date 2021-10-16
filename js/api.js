@@ -1,60 +1,88 @@
 // load books according to search result
 
 
-function loadBooks (){
+const loadBooks = () =>{
 
     const searchField = document.getElementById('search-field');
     let searchText = searchField.value;
-    const newLocal =` https://openlibrary.org/search.json?q=${searchText}`;
-    searchField.value= " ";
+    const required = document.getElementById('required');
 
-    fetch(newLocal)
-    .then(res => res.json())
-    .then(data => displayBooks(data.docs ))
+    
+    if(searchText === ''){
+        
+        required.innerHTML =`
+                                <h4>Please write something to find somthing</h4>
+                                `; 
+       
+    }
+    else{
+        required.innerHTML= '';
+        const newLocal =` https://openlibrary.org/search.json?q=${searchText}`;
+        searchField.value= " ";
+
+        fetch(newLocal)
+        .then(res => res.json())
+        .then(data => displayBooks(data.docs ))
+
+    }
+   
 }
 
-// 
+
 
 // display books 
-function displayBooks(books){
+const displayBooks = books =>{
 
     let searchResult = document.getElementById('search-result');
-    
-    if(books.length == 0){
+    searchResult.innerHTML = '';
+    const info = document.getElementById('info');
+    info.innerHTML = `
+      <p>Total ${books.length} Books Found! </p>
+    `
+//display no result found
+
+    if(books.length === 0){
        
         const warning = document.createElement('div');
         warning.innerHTML = `
-        <h1 style="color:red"> No result found !! </h1>
+                             <h1> No result found !! </h1>
        
         `
         searchResult.appendChild('warning');
     }
     else{
-       
-        for(let book of books){
-
+   //display search results    
+        books.forEach(book => {
             const div = document.createElement('div');
             
             div.classList.add('grid-item');
             div.innerHTML = `
-                       
-                        <img id="card-img" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="">
+                        <div>
+                        
+                            <div style="text-align:center"> 
 
-                          <div id="card-body">
+                                <img id="card-img" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="">
+                       
+                            </div>
+
+                            <div id="card-body">
                                 <h1>${book.title}</h1>
                                 <h4>${book.author_name[0]}</h4>
-                               <h4> First Published: ${book.first_publish_year} </h4>
-                          </div>
+                                <h4> First Published: ${book.first_publish_year} </h4>
+                            </div>
+                        </div>
+                       
                          
             
             `
             
             searchResult.appendChild(div);
             
-            }  
+        });
+         
     }
     
-    
+    info.innerHTML = '';
   
 }
 

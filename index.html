@@ -8,20 +8,34 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <section  class="container">
-       <div>
-            <input id="search-field" type="" placeholder="Search Book" required>
-            <button id="search-btn" onclick="loadBooks()">search </button>
-       </div>
-    </section>
-    <section id="info">
-
-    </section>
-    <section>
-        <div id="search-result" class="grid-style">
+   <header>
+       <!-- input section  -->
+        <section  class="container">
+            <div>
+                <input id="search-field" type="" placeholder="Search Book" required>
+                <button id="search-btn" onclick="loadBooks()">search </button>
+            </div>
+             <div id="required">
             
-        </div>
-    </section>
+            </div>
+        </section>
+        <!-- showing information after clicked on div  -->
+        <section id="info">
+          
+        </section>
+   </header>
+
+<!-- main section -->
+    <main>
+         <section>
+            <div id="search-result" class="grid-style">
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- script links -->
+
     <script src="js/api.js"></script>
 </body>
 </html>
