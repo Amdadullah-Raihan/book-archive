@@ -67,7 +67,7 @@ const displayBooks = books =>{
 
                             <div id="card-body">
                                 <h1>${book.title}</h1>
-                                <h4>${book.author_name[0]}</h4>
+                                <h4>${book.author_name}</h4>
                                 <h4> First Published: ${book.first_publish_year} </h4>
                             </div>
                         </div>
